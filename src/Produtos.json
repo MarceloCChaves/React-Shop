@@ -1,0 +1,88 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Leite",
+      "preco_por_unidade": 2.5,
+      "categoria": "Alimento",
+      "imagem": "https://exemplo.com/leite.jpg"
+    },
+    {
+      "id": 2,
+      "nome": "Maçã",
+      "preco_por_unidade": 1.0,
+      "categoria": "Alimento",
+      "imagem": "https://exemplo.com/maca.jpg"
+    },
+    {
+      "id": 3,
+      "nome": "Carne de Frango",
+      "preco_por_unidade": 8.0,
+      "categoria": "Alimento",
+      "imagem": "https://exemplo.com/frango.jpg"
+    },
+    {
+      "id": 4,
+      "nome": "Detergente",
+      "preco_por_unidade": 3.5,
+      "categoria": "Produto de Limpeza",
+      "imagem": "https://exemplo.com/detergente.jpg"
+    },
+    {
+      "id": 5,
+      "nome": "Banana",
+      "preco_por_unidade": 0.75,
+      "categoria": "Alimento",
+      "imagem": "https://exemplo.com/banana.jpg"
+    },
+    {
+      "id": 6,
+      "nome": "Carne de Bovino",
+      "preco_por_unidade": 12.0,
+      "categoria": "Alimento",
+      "imagem": "https://exemplo.com/bovino.jpg"
+    },
+    {
+      "id": 7,
+      "nome": "Sabonete",
+      "preco_por_unidade": 2.0,
+      "categoria": "Produto de Higiene",
+      "imagem": "https://exemplo.com/sabonete.jpg"
+    },
+    {
+      "id": 8,
+      "nome": "Pão Integral",
+      "preco_por_unidade": 3.0,
+      "categoria": "Alimento",
+      "imagem": "https://exemplo.com/pao.jpg"
+    },
+    {
+      "id": 9,
+      "nome": "Shampoo",
+      "preco_por_unidade": 5.5,
+      "categoria": "Produto de Higiene",
+      "imagem": "https://exemplo.com/shampoo.jpg"
+    },
+    {
+      "id": 10,
+      "nome": "Pasta de Dentes",
+      "preco_por_unidade": 2.75,
+      "categoria": "Produto de Higiene",
+      "imagem": "https://exemplo.com/pasta.jpg"
+    },
+    {
+      "id": 11,
+      "nome": "Smartphone",
+      "preco_por_unidade": 800.0,
+      "categoria": "Eletrônicos",
+      "imagem": "https://exemplo.com/smartphone.jpg"
+    },
+    {
+      "id": 12,
+      "nome": "Fone de Ouvido Bluetooth",
+      "preco_por_unidade": 120.0,
+      "categoria": "Eletrônicos",
+      "imagem": "https://exemplo.com/fone.jpg"
+    }
+  ]
+}
