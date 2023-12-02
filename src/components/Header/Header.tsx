@@ -1,18 +1,20 @@
 import reactLogo from '../../assets/react.svg';
-import { RiShoppingCartFill } from "react-icons/ri";
+import { RiShoppingCart2Fill } from "react-icons/ri";
+import "./Header.css";
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
   return (
     <>
-      <div>
-        <div>
+      <div className='header-container'>
+        <Link to="/" className='header-logo'>
           <img src={reactLogo} alt="React logo" />
           <h1>React Supermarket</h1>
-        </div>
-        <div>
-          <RiShoppingCartFill color="#fff" size={20}/>
-        </div>
+        </Link>
+        <Link to="/carrinho">
+          <RiShoppingCart2Fill color="#fff" size={20}/>
+        </Link>
       </div>
     </>
   )

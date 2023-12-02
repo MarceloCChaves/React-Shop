@@ -1,0 +1,18 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--header-background);
+  padding: 20px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo h1 {
+  color: #fff;
+  margin-left: 20px;
+  font-weight: 700;
+}

@@ -5,84 +5,84 @@
       "nome": "Leite",
       "preco_por_unidade": 2.5,
       "categoria": "Alimento",
-      "imagem": "https://exemplo.com/leite.jpg"
+      "imagem": "https://www.imigrantesbebidas.com.br/img/bebida/images/products/full/18923-leite-ninho-integral-1l.20230824130107.jpg?s=33fbb13b0d72eac66c10c8d5722eb6de"
     },
     {
       "id": 2,
       "nome": "Maçã",
       "preco_por_unidade": 1.0,
       "categoria": "Alimento",
-      "imagem": "https://exemplo.com/maca.jpg"
+      "imagem": "https://scfoods.fbitsstatic.net/img/p/maca-red-argentina-unidade-70942/257561.jpg?w=800&h=800&v=no-change&qs=ignore"
     },
     {
       "id": 3,
       "nome": "Carne de Frango",
       "preco_por_unidade": 8.0,
       "categoria": "Alimento",
-      "imagem": "https://exemplo.com/frango.jpg"
+      "imagem": "https://giassi.vtexassets.com/arquivos/ids/517842-800-auto?v=637995348605500000&width=800&height=auto&aspect=true"
     },
     {
       "id": 4,
       "nome": "Detergente",
       "preco_por_unidade": 3.5,
       "categoria": "Produto de Limpeza",
-      "imagem": "https://exemplo.com/detergente.jpg"
+      "imagem": "https://images.tcdn.com.br/img/img_prod/694926/detergente_ype_lava_loucas_neutro_liquido_500ml_360129_1_dabf73d81954210caed4e6bdd961a981.jpg"
     },
     {
       "id": 5,
       "nome": "Banana",
       "preco_por_unidade": 0.75,
       "categoria": "Alimento",
-      "imagem": "https://exemplo.com/banana.jpg"
+      "imagem": "https://media.soujusto.com.br/products/207130.jpg"
     },
     {
       "id": 6,
       "nome": "Carne de Bovino",
       "preco_por_unidade": 12.0,
       "categoria": "Alimento",
-      "imagem": "https://exemplo.com/bovino.jpg"
+      "imagem": "https://images-americanas.b2w.io/produtos/4295698089/imagens/carne-congelada-capa-de-file-friboi-kg/4295698089_1_xlarge.jpg"
     },
     {
       "id": 7,
       "nome": "Sabonete",
       "preco_por_unidade": 2.0,
       "categoria": "Produto de Higiene",
-      "imagem": "https://exemplo.com/sabonete.jpg"
+      "imagem": "https://io.convertiez.com.br/m/drogal/shop/products/images/10005815/large/sabonete-em-barra-dove-original-hidratacao-profunda-135g_67044.png"
     },
     {
       "id": 8,
       "nome": "Pão Integral",
       "preco_por_unidade": 3.0,
       "categoria": "Alimento",
-      "imagem": "https://exemplo.com/pao.jpg"
+      "imagem": "https://pedidos.nutrimaster.com.br/content/images/thumbs/0003785_pao-integral-plusvita-12-graos-450g.png"
     },
     {
       "id": 9,
       "nome": "Shampoo",
       "preco_por_unidade": 5.5,
       "categoria": "Produto de Higiene",
-      "imagem": "https://exemplo.com/shampoo.jpg"
+      "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaLOkdmIQEyQB-BAzUBjzMl-BubebWaNjWgt2PYTt0G03GzImxY7MZBgJGKg&s"
     },
     {
       "id": 10,
       "nome": "Pasta de Dentes",
       "preco_por_unidade": 2.75,
       "categoria": "Produto de Higiene",
-      "imagem": "https://exemplo.com/pasta.jpg"
+      "imagem": "https://static-webv8.jet.com.br/drogaosuper/Produto/3923042021094438.jpg"
     },
     {
       "id": 11,
       "nome": "Smartphone",
       "preco_por_unidade": 800.0,
       "categoria": "Eletrônicos",
-      "imagem": "https://exemplo.com/smartphone.jpg"
+      "imagem": "https://a-static.mlcdn.com.br/800x560/smartphone-samsung-galaxy-a14-128gb-preto-4g-octa-core-4gb-ram-66-cam-tripla-selfie-13mp-dual-chip/magazineluiza/236721400/b9989bba2b0e7834907772f4d8b7cacf.jpg"
     },
     {
       "id": 12,
       "nome": "Fone de Ouvido Bluetooth",
       "preco_por_unidade": 120.0,
       "categoria": "Eletrônicos",
-      "imagem": "https://exemplo.com/fone.jpg"
+      "imagem": "https://qcy.com.br/cdn/shop/products/T13-white_750x750.png?v=1660932190"
     }
   ]
 }

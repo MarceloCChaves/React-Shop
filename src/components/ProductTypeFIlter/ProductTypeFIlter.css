@@ -1,0 +1,14 @@
+.product-type-filter {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.product-type-filter button{
+  color: var(--white);
+  font-weight: 700;
+}
+
+.button-focused {
+  text-decoration: underline;
+  text-decoration-color: var(--blue);
+}

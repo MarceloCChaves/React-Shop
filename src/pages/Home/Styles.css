@@ -1,0 +1,18 @@
+.home-container {
+  background: var(--header-background);
+}
+
+.home-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background: var(--header-background);
+  padding: 20px;
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
