@@ -1,6 +1,6 @@
 :root {
   --white: #fff;
-  --header-background: #252323;
+  --background: #252323;
   --blue: #61dbfb;
 }
 
@@ -9,6 +9,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: var(--background) !important;
 }
 
 html {

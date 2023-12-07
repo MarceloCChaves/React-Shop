@@ -72,6 +72,7 @@ const Home = () => {
               price={product.preco_por_unidade}
               category={product.categoria}
               id={product.id}
+              isAtCart={false}
             />
           ))}
         </div>
