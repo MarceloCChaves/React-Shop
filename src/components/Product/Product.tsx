@@ -9,18 +9,20 @@ import {
   Divider,
   ButtonGroup,
   Button,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { IProduct } from "../../interfaces/IProduct";
 import { RiHeart2Line, RiShoppingCart2Line } from "react-icons/ri";
-import { FaTrash } from "react-icons/fa"
 import { useCartContext } from "../../common/context/Cart";
 
-const Product = ({ name, category, image, price, id, isAtCart }: IProduct) => {
+const Product = ({ title, category, image, price, id, description }: IProduct) => {
   const iconProps = {
     color: "#fff",
     size: 20,
@@ -32,62 +34,70 @@ const Product = ({ name, category, image, price, id, isAtCart }: IProduct) => {
     return null;
   }
 
-  const { addProduct, removeProduct } = cartContext;
+  const { addProduct } = cartContext;
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <>
       <Card maxW="sm" m={5}>
         <CardBody>
-          <Image src={image} alt={name} borderRadius="lg" boxSize="300px" />
+          <Image src={image} alt={title} borderRadius="lg" boxSize="400px" />
           <Stack mt="6">
-            <Heading size="md">{name}</Heading>
+            <Heading size="md">{title}</Heading>
             <Text>{category}</Text>
             <Text color="blue.600" fontSize="2xl">
-              {`R$ ${price.toFixed(2).replace(".", ",")} - Unidade`}
+              {`$ ${price.toFixed(2)}`}
             </Text>
           </Stack>
         </CardBody>
-        {isAtCart ? (
-          <>
-            <Divider />
-            <CardFooter>
-              <ButtonGroup spacing="2">
-                <NumberInput size="md" maxW={24} defaultValue={1} min={1} max={10}>
-                  <NumberInputField />
-                  <NumberInputStepper>
-                    <NumberIncrementStepper />
-                    <NumberDecrementStepper />
-                  </NumberInputStepper>
-                </NumberInput>
-                <Button variant="solid" colorScheme="red" onClick={() => removeProduct({ name, image, price, category, id })}>
-                  <FaTrash {...iconProps} />
-                  Remover produto
-                </Button>
-              </ButtonGroup>
-            </CardFooter>
-          </>
-        ) : (
-          <>
-            <Divider />
-            <CardFooter>
-              <ButtonGroup spacing="2">
-                <Button
-                  variant="solid"
-                  colorScheme="blue"
-                  onClick={() => addProduct({ name, image, price, category, id })}
-                >
-                  <RiShoppingCart2Line {...iconProps} />
-                  Comprar
-                </Button>
-                <Button variant="solid" colorScheme="red">
-                  <RiHeart2Line {...iconProps} />
-                  Ver produto
-                </Button>
-              </ButtonGroup>
-            </CardFooter>
-          </>
-        )}
+        <>
+          <Divider />
+          <CardFooter>
+            <ButtonGroup spacing="2">
+              <Button
+                variant="solid"
+                colorScheme="blue"
+                onClick={() => {
+                  addProduct({ title, image, price, category, id })
+                }}
+              >
+                <RiShoppingCart2Line {...iconProps} />
+                Buy
+              </Button>
+              <Button variant="solid" colorScheme="red" onClick={onOpen}>
+                <RiHeart2Line {...iconProps} />
+                View
+              </Button>
+            </ButtonGroup>
+          </CardFooter>
+        </>
       </Card>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>
+            <Image src={image} alt={title} borderRadius="lg" boxSize="300px" m={5} />
+            <Stack mt="6">
+              <Heading size="md">{title}</Heading>
+            </Stack>
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Text>{category}</Text>
+            <Text>{description}</Text>
+            <Text color="blue.600" fontSize="2xl">
+              {`$ ${price.toFixed(2)}`}
+            </Text>
+          </ModalBody>
+          <Divider />
+          <ModalFooter>
+            <Button colorScheme='red' onClick={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 };

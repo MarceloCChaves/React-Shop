@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useContext, useState } from 'react';
 import { ICartContextProps } from '../../interfaces/ICartContextProps';
 import { IProduct } from '../../interfaces/IProduct';
+import { useToast } from '@chakra-ui/react'
 
 export const CartContext = createContext<ICartContextProps | undefined>(undefined);
 
@@ -22,6 +23,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }: any) => 
 
 export const useCartContext = () => {
   const context = useContext(CartContext);
+  const toast = useToast();
 
   if (!context) {
     throw new Error("useCartContext deve ser usado dentro de um CartProvider");
@@ -35,9 +37,21 @@ export const useCartContext = () => {
       setCart(previousCart => 
         [...previousCart, newProduct]
       );
-      alert(`Produto adicionado ao carrinho`)
+      toast({
+        title: 'Added',
+        description: `Product ${newProduct.title} has been added to cart`,
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      })
     } else {
-      alert("Produto já adicionado")
+      toast({
+        title: 'Error',
+        description: `product ${newProduct.title} is already in the cart`,
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      })
     }
   }
 

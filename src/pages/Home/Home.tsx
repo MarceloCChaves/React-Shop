@@ -2,12 +2,14 @@ import ProductTypeFilter from "../../components/ProductTypeFIlter/ProductTypeFil
 import "./Styles.css";
 import { useState, useEffect } from "react";
 import Product from "../../components/Product/Product";
-import produtos from "../../Produtos.json";
-import { Button } from "@chakra-ui/react";
+import API from "../../api/api";
+import { IProduct } from "../../interfaces/IProduct";
+import { Button, Input } from "@chakra-ui/react";
+import { RiSearch2Fill } from "react-icons/ri";
 
 const Home = () => {
-  const allProducts = produtos.produtos;
-  const [filteredProducts, setFilteredProducts] = useState(produtos.produtos);
+  const [allProducts, setAllProducts] = useState<IProduct[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [categoryFilter, setCategoryFilter] = useState(null);
   const [activeTab, setActiveTab] = useState(null);
 
@@ -18,61 +20,77 @@ const Home = () => {
 
   useEffect(() => {
     const filteredProducts = categoryFilter
-      ? allProducts.filter((produto) => produto.categoria === categoryFilter)
+      ? allProducts.filter((produto) => produto.category === categoryFilter)
       : allProducts;
 
     setFilteredProducts(filteredProducts);
   }, [categoryFilter, allProducts]);
+
+  useEffect(() => {
+    API.get("/products")
+      .then((res) => {
+        setAllProducts(res.data);
+      })
+      .catch((err) => {
+        console.error(err.message);
+      });
+  }, []);
+
 
   return (
     <>
       <div className="home-container">
         <div className="home-navbar">
           <ProductTypeFilter
-            title="Alimentos"
-            isActive={activeTab === "Alimento"}
-            handleFilterByCategory={() => handleFiltroCategoria("Alimento")}
+            title="All"
+            isActive={activeTab === null}
+            handleFilterByCategory={() => handleFiltroCategoria(null)}
           />
           <ProductTypeFilter
-            title="Higiene"
-            isActive={activeTab === "Produto de Higiene"}
+            title="Men's clothing"
+            isActive={activeTab === "Men's clothing"}
+            handleFilterByCategory={() => handleFiltroCategoria("men's clothing")}
+          />
+          <ProductTypeFilter
+            title="Jewelery"
+            isActive={activeTab === "jewelery"}
             handleFilterByCategory={() =>
-              handleFiltroCategoria("Produto de Higiene")
+              handleFiltroCategoria("jewelery")
             }
           />
           <ProductTypeFilter
-            title="Limpeza"
-            isActive={activeTab === "Produto de Limpeza"}
+            title="Women's clothing"
+            isActive={activeTab === "women's clothing"}
             handleFilterByCategory={() =>
-              handleFiltroCategoria("Produto de Limpeza")
+              handleFiltroCategoria("women's clothing")
             }
           />
           <ProductTypeFilter
-            title="Eletrônicos"
-            isActive={activeTab === "Eletrônicos"}
-            handleFilterByCategory={() => handleFiltroCategoria("Eletrônicos")}
+            title="Electronics"
+            isActive={activeTab === "electronics"}
+            handleFilterByCategory={() => handleFiltroCategoria("electronics")}
           />
         </div>
-        <div className="home-navbar">
-          <Button
-            colorScheme="blue"
-            onClick={() => {
-              setFilteredProducts(produtos.produtos), setActiveTab(null);
-            }}
-          >
-            Remover filtros
+        <div className="search-container">
+          <Input
+            color="#fff"
+            placeholder='Find a product...'
+            _placeholder={{ opacity: 1, color: '#fff' }}
+          />
+          <Button leftIcon={<RiSearch2Fill />} colorScheme='blue' variant='solid'>
+            Search
           </Button>
         </div>
         <div className="products-container">
           {filteredProducts.map((product) => (
             <Product
-              name={product.nome}
               key={product.id}
-              image={product.imagem}
-              price={product.preco_por_unidade}
-              category={product.categoria}
+              title={product.title}
+              image={product.image}
+              price={product.price}
+              category={product.category}
               id={product.id}
-              isAtCart={false}
+              description={product.description}
             />
           ))}
         </div>

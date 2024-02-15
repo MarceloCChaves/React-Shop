@@ -10,7 +10,7 @@ const Header = () => {
       <div className='header-container'>
         <Link to="/" className='header-logo'>
           <img src={reactLogo} alt="React logo" />
-          <h1>React Supermarket</h1>
+          <h1>React Shop</h1>
         </Link>
         <Link to="/carrinho">
           <RiShoppingCart2Fill color="#fff" size={20}/>

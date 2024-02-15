@@ -1,8 +1,16 @@
 .home-navbar {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 20px;
+}
+
+.search-container {
+  margin: 0 auto;
+  width: 500px;
+
+  max-width: 90%;
+  display: flex;
 }
 
 .products-container {

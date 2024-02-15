@@ -1,9 +1,8 @@
 export interface IProduct {
   id: number;
-  name: string;
+  title: string;
   price: number;
   category: string;
+  description?: string;
   image: string;
-  isAtCart?: boolean;
-  quantity?: number;
 }
