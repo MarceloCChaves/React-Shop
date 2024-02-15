@@ -37,6 +37,7 @@ const Carrinho = () => {
                 category={product.category}
                 id={product.id}
                 description={product.description}
+                isAtCart
               />
             );
           })}
@@ -96,7 +97,7 @@ const Carrinho = () => {
         </Drawer>
       </> :
       <Heading as='h2' size='xl' color="#fff" textAlign="center">
-        Não há produtos no carrinho
+        Your cart is empty
       </Heading>
   );
 };

@@ -59,7 +59,13 @@ export const useCartContext = () => {
     setCart(previousItem => previousItem.filter(item => {
       item.id !== p.id
     }));
-    alert(`Produto removido do carrinho`)
+    toast({
+      title: 'Removed',
+      description: `Product ${p.title} has been removed from cart`,
+      status: 'success',
+      duration: 5000,
+      isClosable: true,
+    })
   }
 
   return {

@@ -20,9 +20,10 @@ import {
 } from "@chakra-ui/react";
 import { IProduct } from "../../interfaces/IProduct";
 import { RiHeart2Line, RiShoppingCart2Line } from "react-icons/ri";
+import { FaTrash } from "react-icons/fa";
 import { useCartContext } from "../../common/context/Cart";
 
-const Product = ({ title, category, image, price, id, description }: IProduct) => {
+const Product = ({ title, category, image, price, id, description, isAtCart }: IProduct) => {
   const iconProps = {
     color: "#fff",
     size: 20,
@@ -34,7 +35,7 @@ const Product = ({ title, category, image, price, id, description }: IProduct) =
     return null;
   }
 
-  const { addProduct } = cartContext;
+  const { addProduct, removeProduct } = cartContext;
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -55,17 +56,28 @@ const Product = ({ title, category, image, price, id, description }: IProduct) =
           <Divider />
           <CardFooter>
             <ButtonGroup spacing="2">
-              <Button
-                variant="solid"
-                colorScheme="blue"
-                onClick={() => {
-                  addProduct({ title, image, price, category, id })
-                }}
-              >
-                <RiShoppingCart2Line {...iconProps} />
-                Buy
-              </Button>
-              <Button variant="solid" colorScheme="red" onClick={onOpen}>
+              {!isAtCart ?
+                <Button
+                  variant="solid"
+                  colorScheme="blue"
+                  onClick={() => {
+                    addProduct({ title, image, price, category, id })
+                  }}
+                >
+                  <RiShoppingCart2Line {...iconProps} />
+                  Add
+                </Button> :
+                <Button
+                  variant="solid"
+                  colorScheme="red"
+                  onClick={() => {
+                    removeProduct({ title, image, price, category, id })
+                  }}
+                >
+                  <FaTrash {...iconProps} />
+                  Remove
+                </Button>}
+              <Button variant="solid" colorScheme="green" onClick={onOpen}>
                 <RiHeart2Line {...iconProps} />
                 View
               </Button>
