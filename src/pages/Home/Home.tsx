@@ -12,6 +12,7 @@ const Home = () => {
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const [categoryFilter, setCategoryFilter] = useState(null);
   const [activeTab, setActiveTab] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleFiltroCategoria = (title: any) => {
     setCategoryFilter(title);
@@ -35,6 +36,13 @@ const Home = () => {
         console.error(err.message);
       });
   }, []);
+
+  const handleSearch = () => {
+    const filteredResults = allProducts.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(filteredResults);
+  };
 
 
   return (
@@ -76,8 +84,9 @@ const Home = () => {
             color="#fff"
             placeholder='Find a product...'
             _placeholder={{ opacity: 1, color: '#fff' }}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <Button leftIcon={<RiSearch2Fill />} colorScheme='blue' variant='solid'>
+          <Button leftIcon={<RiSearch2Fill />} colorScheme='blue' variant='solid' onClick={handleSearch}>
             Search
           </Button>
         </div>

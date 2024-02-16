@@ -2,14 +2,21 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../common/context/Cart";
 import Product from "../../components/Product/Product";
 import "./styles.css";
-import { Button, Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Heading, useDisclosure, Text } from "@chakra-ui/react";
+import { Image, Button, Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Heading, useDisclosure, Text, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 import ListProducts from "../../components/ListProducts";
+import { RiSearch2Fill } from "react-icons/ri";
+import { Link } from "react-router-dom";
+import Check from "../../assets/check.jpg";
 
 const Carrinho = () => {
   const cartContext = useContext(CartContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [purcharsed, setPurcharsed] = useState(false);
 
+  const iconProps = {
+    color: "#fff",
+    size: 20,
+  };
 
   if (!cartContext) {
     return null;
@@ -22,6 +29,13 @@ const Carrinho = () => {
   });
 
   const total = prices.reduce((partialSum, a) => partialSum + a, 0);
+
+  const handlePurcharse = () => {
+    setPurcharsed(!purcharsed)
+    setTimeout(() => {
+      window.location.replace("/");
+    }, 5000)
+  }
 
   return (
     cart.length ?
@@ -71,7 +85,7 @@ const Carrinho = () => {
                 )
               })}
               <Divider my={3} />
-              <Text fontSize="2xl">Total cost: ${total}</Text>
+              <Text fontSize="2xl">Total cost: ${total.toFixed(2)}</Text>
             </DrawerBody>
 
             <DrawerFooter>
@@ -88,17 +102,39 @@ const Carrinho = () => {
                 </Button> :
                 <Button
                   colorScheme='blue'
-                  onClick={() => setPurcharsed(!purcharsed)}
+                  onClick={handlePurcharse}
                 >
                   Purcharse
                 </Button>}
             </DrawerFooter>
           </DrawerContent>
         </Drawer>
+        {purcharsed ?
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>
+                <Image src={Check} alt="check-icon" />
+              </ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <Text fontSize='4xl' color="#3C732E" textAlign="center">Purcharse completed!</Text>
+              </ModalBody>
+              <Divider />
+            </ModalContent>
+          </Modal> : <></>}
       </> :
-      <Heading as='h2' size='xl' color="#fff" textAlign="center">
-        Your cart is empty
-      </Heading>
+      <div className="cart-container-empty">
+        <Link to="/">
+          <Heading as='h2' size='xl' color="#fff">
+            Your cart is empty
+          </Heading>
+          <Button colorScheme='blue' my={5}>
+            <RiSearch2Fill {...iconProps} />
+            Find more products
+          </Button>
+        </Link>
+      </div>
   );
 };
 
